@@ -7,21 +7,43 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model user {
   id    Int     @id @default(autoincrement())
   email String  @unique
+  role  role    @default(USER)
   name  String?
   posts post[]
+  profile profile?
+}
+
+model profile {
+  id     Int    @id @default(autoincrement())
+  bio    Json?
+  userId Int    @unique
+  user   user   @relation(fields: [userId], references: [id])
 }
 
 model post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    user    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  id         Int     @id @default(autoincrement())
+  title      String
+  content    String?
+  images     String[]
+  published  Boolean @default(false)
+  authorId   Int
+  author     user    @relation(fields: [authorId], references: [id])
+  categories category[]
+}
+
+model category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts post[]
+}
+
+enum role {
+  USER
+  ADMIN
 }
