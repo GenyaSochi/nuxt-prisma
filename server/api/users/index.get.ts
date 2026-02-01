@@ -1,3 +1,4 @@
+// import { prisma } from '@@/lib/prisma'
 export default defineEventHandler(async (event) => {
   try {
     const a = await prisma.user.findMany()

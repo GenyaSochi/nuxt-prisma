@@ -56,7 +56,7 @@ const editUser = async () => {
     editText.value = 'input email'
     return
   }
-  const result = await $fetch('/api/users/', {
+  const result = await $fetch('/api/users', {
     method: 'PUT',
     body: editUserObj.value
   })
