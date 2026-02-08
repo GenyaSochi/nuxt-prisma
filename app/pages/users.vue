@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello</h1>
+  <h1>Users</h1>
   <div v-for="user of data" :key="user.id">
     {{ user }}
   </div>
@@ -56,7 +56,7 @@ const editUser = async () => {
     editText.value = 'input email'
     return
   }
-  const result = await $fetch('/api/users', {
+  const result = await $fetch('/api/users/', {
     method: 'PUT',
     body: editUserObj.value
   })
