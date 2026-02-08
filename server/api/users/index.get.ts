@@ -1,20 +1,19 @@
-// import { prisma } from '@@/lib/prisma'
 export default defineEventHandler(async (event) => {
   try {
     const a = await prisma.user.findMany()
-    const users = await prisma.user.findMany({
-      // select: {
-      //   id: true,
-      //   email: true,
-      //   role: true,
-      //   name: true,
-      //   posts: {
-      //     select: {
-      //       id: true,
-      //       title: true
-      //     }
-      //   }
-      // },
+    const users = await prisma.user.findMany({   
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        name: true,
+        posts: {
+          select: {
+            id: true,
+            title: true
+          }
+        }
+      },
       // include: {
       //   posts: {
       //     select: {
