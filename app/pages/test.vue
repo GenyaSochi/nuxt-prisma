@@ -23,8 +23,10 @@
 
     <p>users</p>
 
-    <p>/api/users/name/:name | GET - {{ idUsers }}</p>
-    <p></p>
+    <p>/api/users/:name | GET - {{ idUsers }}</p>
+    <p>/api/users/createMany | POST {{ createUsers }}</p>
+    <p>/api/users' | GET - {{ indexUsers }}</p>
+    <p>/api/users | POST - {{ indexPostUsers }}</p>
   </div>
 </template>
 
@@ -39,7 +41,7 @@ const localGet = await $fetch('/api/tests/local')
 
 //goupe------------------------------------------------------------
 const indexIdGoupe = await $fetch('/api/tests/goupe/5')
-const indexDelGoupe  = await $fetch('/api/tests/goupe', {method:"DELETE"})
+const indexDelGoupe  = await $fetch('/api/tests/goupe', {method:'DELETE'})
 const indexGetGoupe = await $fetch('/api/tests/goupe')
 const indexPostGoupe = await $fetch('/api/tests/goupe', {method:'POST'})
 const indexPutGoupe = await $fetch('/api/tests/goupe', {method:'PUT'})
@@ -47,6 +49,9 @@ const localGetGoupe = await $fetch('/api/tests/goupe/local')
 
 //users--------------------------------------------------------------
 
-const idUsers = await $fetch('/api/users/name/Vasya')
+const idUsers = await $fetch('/api/users/Vasya')
+const createUsers = await $fetch('/api/users/createMany', {method:'POST' })
+const indexUsers = await $fetch('/api/users')
+const indexPostUsers = await $fetch('/api/users', {method:'POST'})
 
 </script>
