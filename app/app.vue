@@ -5,16 +5,17 @@
     <NuxtLink to="test">test</NuxtLink>
     <NuxtLink to="user">user</NuxtLink>
     <NuxtLink to="users">users</NuxtLink>
+    <NuxtLink to="group">group</NuxtLink>
   </nav>
-  <div>    
+  _______________________________________________________________
+  <div>
     <NuxtPage />
   </div>
 </template>
 
 <style scoped>
 .navigation {
-display: flex;
-gap: 20px;
-background-color: rgb(155, 155, 218);
+  display: flex;
+  gap: 20px;
 }
 </style>
